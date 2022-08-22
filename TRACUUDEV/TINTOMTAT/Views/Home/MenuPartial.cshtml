@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TINTOMTAT.Models.DanhMucBaiViet.DanhMucBaiVietViewModel>
+<style>
+    ul li a {
+        background: #1e2560;
+        color: white;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <a class="home-page-href" href="@Url.Action("Index","Home")" title="Home">
+            <div class="home-page col-md-3 col-sm-9 col-xs-9">
+                <div class="logo">
+                    <h1>Demo</h1>
+                </div>
+            </div>
+        </a>
+        <div class="col-md-9 col-sm-3 col-xs-3">
+            <div class="menu text-right hidden-sm hidden-xs">
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        var url = "/Category/" + item.Alias + ".html";
+                        <li><a href="@url">@item.TenDanhMuc</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6 responsive-menu pull-right text-right visible-xs visible-sm">
+            <a href="#" class="toggle-menu fa fa-bars"></a>
+            <div class="menu">
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        var url = "/Category/" + item.Alias + ".html";
+                        <li><a href="@url">@item.TenDanhMuc</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>    
+</div>

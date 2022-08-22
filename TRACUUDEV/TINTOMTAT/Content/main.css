@@ -1,0 +1,49 @@
+﻿.user-login{
+    background-color:#d5eff7;
+}
+.log-content{
+    margin:20px;
+}
+.log-content .header{
+    text-align:center;
+    font-weight:bold;
+    font-size:1.2em;
+    cursor:pointer;
+}
+.header-active {
+    color: #9b1616;
+    border-bottom-color: #9b1616;
+}
+.avatar-login {
+    border-radius: 50%;
+    width: 32px;
+    border:1px solid white;
+}
+#info-user-log{
+    cursor:pointer;
+}
+.menu-profile{
+    display:none;
+    width:100px;
+    /*height:150px;*/
+    background-color:black;
+    position:absolute;z-index:99999;
+    left:84%;
+    padding:10px;
+}
+.handel-login{
+
+}
+.button-add-google {
+    background-image: url(https://s1.vnecdn.net/myvne/i/v64/ls/icons/google_ico.svg); /* 16px x 16px */
+    /*background-color: transparent;*/ /* make the button transparent */
+    background-repeat: no-repeat; /* make the background image appear only once */
+    background-position: 60px 5px; /* equivalent to 'top left' */
+    border: none; /* assuming we don't want any borders */
+    cursor: pointer; /* make the cursor like hovering over an <a> element */
+    height: 16px; /* make this the size of your image */
+    padding-left: 16px; /* make text start to the right of the image */
+    vertical-align: middle; /* align the text vertically centered */
+    height: 35px;
+}
+
