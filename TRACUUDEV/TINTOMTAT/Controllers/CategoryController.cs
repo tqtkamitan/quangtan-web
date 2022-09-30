@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TINTOMTAT.Data;
-using TINTOMTAT.Models.BaiVietPortalViewModel;
+using TINTOMTAT.Models.PostPortalViewModel;
 
 namespace TINTOMTAT.Controllers
 {
@@ -14,24 +14,24 @@ namespace TINTOMTAT.Controllers
         // GET: Category
         public ActionResult Index(string alias)
         {
-            var result = _connect.BaiViets.Where(x => x.DanhMucBaiViet.Alias == alias && x.DaXoa != true).Select(p => new BaiVietViewModel
+            var result = _connect.Posts.Where(x => x.PostType.Alias == alias && x.IsDeleted != true).Select(p => new PostViewModel
             {
                 Id = p.Id,
-                TenBaiViet = p.TenBaiViet,
+                PostName = p.PostName,
                 Alias = p.Alias,
-                LuotXem = p.LuotXem,
-                NoiDungNgan = p.NoiDungNgan,
-                NgayTao = p.NgayTao,
-                HinhAnh = p.HinhAnh
+                View = p.View,
+                ShortContent = p.ShortContent,
+                CreatedDate = p.CreatedDate,
+                Image = p.PostImage
             }).ToList();
 
-            var postHot = _connect.BaiViets.Where(x => x.DaXoa != true).Take(4).Select(p => new BaiVietViewModel
+            var postHot = _connect.Posts.Where(x => x.IsDeleted != true).Take(4).Select(p => new PostViewModel
             {
                 Id = p.Id,
-                TenBaiViet = p.TenBaiViet,
+                PostName = p.PostName,
                 Alias = p.Alias,
-                LuotXem = p.LuotXem,
-                HinhAnh = p.HinhAnh
+                View = p.View,
+                Image = p.PostImage
             }).ToList();
 
             ViewBag.Title = alias;

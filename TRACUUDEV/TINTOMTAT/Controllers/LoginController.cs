@@ -32,12 +32,12 @@ namespace TINTOMTAT.Controllers
                 return null;
             }
 
-            var user = _connect.ThanhViens.Where(s => s.Email.Equals(model.UserName) && (string.IsNullOrEmpty(s.Password) || s.Password.Equals(model.Password)) && s.LoaiTaiKhoan == "Local").ToList();
+            var user = _connect.Members.Where(s => s.Email.Equals(model.UserName) && (string.IsNullOrEmpty(s.Password) || s.Password.Equals(model.Password)) && s.AccountType == "Local").ToList();
             if (user.Count() > 0)
             {
                 //add session
                 Session["ThanhVienId"] = user.FirstOrDefault().Id;
-                Session["TenThanhVien"] = user.FirstOrDefault().TenHienthi;
+                Session["TenThanhVien"] = user.FirstOrDefault().DisplayName;
                 Session["TaiKhoanThanhVien"] = user.FirstOrDefault().Email;
                 Session["IdThanhVien"] = user.FirstOrDefault().Id;
                 if (String.IsNullOrEmpty(model.RedirecUrl))
@@ -64,7 +64,7 @@ namespace TINTOMTAT.Controllers
                 return Content("Không được để trống Username hoặc Password");
             }
 
-            var checkUser = _connect.ThanhViens.Where(x => x.Email == model.UserName).FirstOrDefault();
+            var checkUser = _connect.Members.Where(x => x.Email == model.UserName).FirstOrDefault();
             if(checkUser != null){
                 return Content("User (email) đã tồn tại trong hệ thống");
             }
@@ -72,17 +72,17 @@ namespace TINTOMTAT.Controllers
             var endName = model.UserName.IndexOf("@");
             var tenHienThi = model.UserName.Substring(0, endName);
             var thanhVien = new Member();
-            thanhVien.TenHienthi = tenHienThi;
+            thanhVien.DisplayName = tenHienThi;
             thanhVien.Email = model.UserName;
             thanhVien.Password = model.Password;
             thanhVien.CreateDate = DateTime.Now;
-            thanhVien.LoaiTaiKhoanId = 1;
-            thanhVien.LoaiTaiKhoan = "Local";
+            thanhVien.AccountTypeId = 1;
+            thanhVien.AccountType = "Local";
 
-            _connect.ThanhViens.Add(thanhVien);
+            _connect.Members.Add(thanhVien);
             _connect.SaveChanges();
 
-            var user = _connect.ThanhViens.Where(s => s.Email.Equals(model.UserName) && (string.IsNullOrEmpty(s.Password) || s.Password.Equals(model.Password))).ToList();
+            var user = _connect.Members.Where(s => s.Email.Equals(model.UserName) && (string.IsNullOrEmpty(s.Password) || s.Password.Equals(model.Password))).ToList();
             if (user == null)
             {
                 ViewBag.error = "Login failed";
@@ -90,7 +90,7 @@ namespace TINTOMTAT.Controllers
             }
             //add session
             Session["ThanhVienId"] = user.FirstOrDefault().Id;
-            Session["TenThanhVien"] = user.FirstOrDefault().TenHienthi;
+            Session["TenThanhVien"] = user.FirstOrDefault().DisplayName;
             Session["TaiKhoanThanhVien"] = user.FirstOrDefault().Email;
             Session["IdThanhVien"] = user.FirstOrDefault().Id;
 
@@ -133,26 +133,26 @@ namespace TINTOMTAT.Controllers
             }
 
             //get user
-            var user = _connect.ThanhViens.Where(x => x.Email == loginInfo.Email).ToList();
+            var user = _connect.Members.Where(x => x.Email == loginInfo.Email).ToList();
             if(user.Count() <=0 )
             {
                 //register
                 var thanhVien = new Member();
-                thanhVien.TenHienthi = loginInfo.DefaultUserName;
+                thanhVien.DisplayName = loginInfo.DefaultUserName;
                 thanhVien.Email = loginInfo.Email;
                 thanhVien.Password = "123";
                 thanhVien.CreateDate = DateTime.Now;
-                thanhVien.LoaiTaiKhoanId = 2;
-                thanhVien.LoaiTaiKhoan = "Google";
+                thanhVien.AccountTypeId = 2;
+                thanhVien.AccountType = "Google";
 
-                _connect.ThanhViens.Add(thanhVien);
+                _connect.Members.Add(thanhVien);
                 _connect.SaveChanges();
 
-                var userAfter = _connect.ThanhViens.Where(s => s.Email.Equals(loginInfo.Email)).ToList();
+                var userAfter = _connect.Members.Where(s => s.Email.Equals(loginInfo.Email)).ToList();
 
                 //login; 
                 Session["ThanhVienId"] = userAfter.FirstOrDefault().Id;
-                Session["TenThanhVien"] = userAfter.FirstOrDefault().TenHienthi;
+                Session["TenThanhVien"] = userAfter.FirstOrDefault().DisplayName;
                 Session["TaiKhoanThanhVien"] = userAfter.FirstOrDefault().Email;
                 Session["IdThanhVien"] = userAfter.FirstOrDefault().Id;
             }
@@ -160,11 +160,11 @@ namespace TINTOMTAT.Controllers
             {
                 if (user.FirstOrDefault().IsDeleted == true)
                 {
-                    return Content("User này đã bị khóa");
+                    return Content("User has been locked");
                 }
                 //login; 
                 Session["ThanhVienId"] = user.FirstOrDefault().Id;
-                Session["TenThanhVien"] = user.FirstOrDefault().TenHienthi;
+                Session["TenThanhVien"] = user.FirstOrDefault().DisplayName;
                 Session["TaiKhoanThanhVien"] = user.FirstOrDefault().Email;
                 Session["IdThanhVien"] = user.FirstOrDefault().Id;
             }

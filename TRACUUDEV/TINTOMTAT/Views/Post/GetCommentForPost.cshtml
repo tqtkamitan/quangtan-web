@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TINTOMTAT.Data.Entites.BinhLuan>
+﻿@model IEnumerable<TINTOMTAT.Data.Entites.Comment>
 
 <div class="comment">
     <p><b>Comment (@Model.Count())</b></p>
@@ -41,10 +41,10 @@
     {
         <div class="row" style="margin-bottom:15px;">
             <div class="col-md-3 col-xs-3 col-sm-3 avart-color" style="width:40px; height:40px; border-radius:50%; border:1px solid grey; color:white; font-weight:bold; position:relative">
-                <p style="position:absolute; top:8px; left:15px;">@item.ThanhVien.TenHienthi.Substring(0, 1).ToUpper()</p>
+                <p style="position:absolute; top:8px; left:15px;">@item.Member.DisplayName.Substring(0, 1).ToUpper()</p>
             </div>
             <div class="col-md-9 col-xs-9 col-sm-9" style="padding-top:5px;">
-                <p><b style="font-weight:bold; font-size:1.2em; margin-right:5px;">@item.ThanhVien.TenHienthi</b>@item.Comment</p>
+                <p><b style="font-weight:bold; font-size:1.2em; margin-right:5px;">@item.Member.DisplayName</b>@item.CommentData</p>
             </div>
         </div>
 

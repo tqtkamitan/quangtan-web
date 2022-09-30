@@ -157,6 +157,8 @@ h1, h2, h3, h4, h5, h6 {
             }
 
 .main-header {
+    margin-left: 40px;
+    border-bottom-left-radius: 50px;
     position: fixed;
     width: 100%;
     z-index: 9999;
@@ -206,7 +208,7 @@ h1, h2, h3, h4, h5, h6 {
 
                 .main-header .menu ul li a.current {
                     background: #e3722e;
-                    color: white;
+                    color: lightgreen;
                 }
 
 .main-header-shrink {
@@ -221,7 +223,7 @@ h1, h2, h3, h4, h5, h6 {
 
     .responsive-menu .toggle-menu {
         font-size: 24px;
-        color: #e3722e;
+        color: lightgreen;
     }
 
     .responsive-menu .menu {
@@ -244,7 +246,7 @@ h1, h2, h3, h4, h5, h6 {
             }
 
             .responsive-menu .menu ul li a {
-                color: white;
+                color: lightgreen;
                 padding: 15px 20px;
                 display: block;
                 -webkit-border-radius: 0;
@@ -286,7 +288,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .mainBtn {
     background-color: #e3722e;
-    color: white;
+    color: lightgreen;
     display: inline-block;
     text-transform: uppercase;
     padding: 10px 15px;
@@ -312,7 +314,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
     #services .service-item .service-header i {
-        color: #e3722e;
+        color: lightgreen;
         font-size: 24px;
         float: left;
         margin-right: 25px;
@@ -328,13 +330,14 @@ h1, h2, h3, h4, h5, h6 {
 	Portfolio Styles 
 --------------------------------------------------------*/
 #portfolio {
-    padding-bottom: 80px;
+    padding-bottom: 60px;
     margin-top: 100px;
-    background: #3d3f3f;
+    background: #6667AB;
+    transform: skewY(-3deg);
 }
 
     #portfolio .title-section h2 {
-        color: white;
+        color: lightgreen;
     }
 
     #portfolio .portfolio-thumb {
@@ -379,12 +382,19 @@ h1, h2, h3, h4, h5, h6 {
                 }
 
                     #portfolio .portfolio-thumb .overlay .inner h4 a {
-                        color: white;
+                        /*color: lightgreen;*/
+                    }
+
+                    #portfolio .portfolio-thumb h1 {
+                        color: lightgreen;
+                        font-size: 150%;
+                        font-weight: bold;
+                        margin-top: 10px;
                     }
 
                 #portfolio .portfolio-thumb .overlay .inner span {
                     font-weight: 300;
-                    color: white;
+                    color: lightgreen;
                 }
 
         #portfolio .portfolio-thumb:hover .overlay {
@@ -609,8 +619,8 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------*/
 .site-footer {
     margin-top: 100px;
-    background-color: #2e8fe3;
-    color: white;
+    background-color: #6667AB;
+    color: lightgreen;
     padding: 25px 0;
 }
 
@@ -618,7 +628,7 @@ h1, h2, h3, h4, h5, h6 {
         margin-top: 10px;
     }
 
-    .site-footer a {
+    .site-footer #go-top {
         color: white;
         text-align: center;
         display: block;

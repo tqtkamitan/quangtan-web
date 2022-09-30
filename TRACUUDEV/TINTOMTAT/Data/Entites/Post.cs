@@ -14,11 +14,12 @@ namespace TINTOMTAT.Data.Entites
         public string Alias { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
+        public string ShortContent { get; set; }
         public string PostImage { get; set; }
         public DateTime CreatedDate { get; set; }
         public int? FView { get; set; }
         public int? View { get; set; }
-        public DateTime? Updated { get; set; }
+        public DateTime? UpdatedDate { get; set; }
         public int? HomePageOrder { get; set; }
         public int? Order { get; set; }
         public bool? IsDeleted { get; set; }

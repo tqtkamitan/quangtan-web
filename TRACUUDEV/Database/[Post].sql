@@ -14,6 +14,7 @@ CREATE TABLE [dbo].[Post](
 	[Alias] [varchar](500) NOT NULL,
 	[Title] [nvarchar](1500) NULL,
 	[Content] [nvarchar](max) NOT NULL,
+	[ShortContent] [nvarchar](max) NOT NULL,
 	[PostImage] [nvarchar](max) NULL,
 	[CreatedDate] [datetime] NOT NULL,
 	[FView] [int] NULL,

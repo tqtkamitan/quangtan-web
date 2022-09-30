@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TINTOMTAT.Data.Entites.DanhMucBaiViet>
+﻿@model IEnumerable<TINTOMTAT.Data.Entites.PostType>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -27,9 +27,9 @@
                 {
                     <tr>
                         <td>@item.Id</td>
-                        <td>@item.TenDanhMuc</td>
-                        <td>@item.ThuTuHienThi</td>
-                        <td>@item.NgayTao.ToString("dd/MM/yyyy")</td>
+                        <td>@item.PostTypeName</td>
+                        <td>@item.Order</td>
+                        <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
                         <td>
                             @Html.ActionLink("Sửa", "SuaDanhMuc", "DanhMucBaiVietAdmin", new {@id = item.Id }, new { @class = "btn btn-primary" })
                             @Html.ActionLink("Xóa", "XoaDanhMuc", "DanhMucBaiVietAdmin", new { @id = item.Id }, new { @class = "btn btn-danger" })

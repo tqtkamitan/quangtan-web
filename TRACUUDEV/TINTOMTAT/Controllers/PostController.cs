@@ -6,8 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using TINTOMTAT.Data;
 using TINTOMTAT.Data.Entites;
-using TINTOMTAT.Models.BaiVietPortalViewModel;
-using TINTOMTAT.Models.BaiViets;
+using TINTOMTAT.Models.Comments;
+using TINTOMTAT.Models.PostPortalViewModel;
 
 namespace TINTOMTAT.Controllers
 {
@@ -17,42 +17,42 @@ namespace TINTOMTAT.Controllers
 
         public ActionResult Index(string alias = "")
         {
-            var baiViet = _connect.BaiViets.FirstOrDefault(x => x.Alias.Contains(alias));
-            var baiVietViewModel = new BaiVietDetailViewModel
+            var post = _connect.Posts.FirstOrDefault(x => x.Alias.Contains(alias));
+            var postViewModel = new PostDetailViewModel
             {
-                Id = baiViet.Id,
-                TenBaiViet = baiViet.TenBaiViet,
-                Alias = baiViet.Alias,
-                NoiDung = baiViet.NoiDung,
-                HinhAnh = baiViet.HinhAnh,
-                LuotXem = baiViet.LuotXem ?? 0 + baiViet.LuotXemAo ?? 0,
-                NgayTao = baiViet.NgayTao
+                Id = post.Id,
+                PostName = post.PostName,
+                Alias = post.Alias,
+                Content = post.Content,
+                PostImage = post.PostImage,
+                View = post.View ?? 0 + post.FView ?? 0,
+                CreatedDate = post.CreatedDate
 
             };
 
-            var postHot = _connect.BaiViets.Where(x => x.DaXoa != true).Take(4).Select(p => new BaiVietViewModel
+            var postHot = _connect.Posts.Where(x => x.IsDeleted != true).Take(4).Select(p => new Models.PostViewModel
             {
                 Id = p.Id,
-                TenBaiViet = p.TenBaiViet,
+                PostName = p.PostName,
                 Alias = p.Alias,
-                LuotXem = p.LuotXem ?? 0 + p.LuotXemAo ?? 0,
-                HinhAnh = p.HinhAnh
+                View = p.View ?? 0 + p.FView ?? 0,
+                PostImage = p.PostImage
             }).ToList();
 
             ViewBag.PostHot = postHot;
             //update lượt xem
 
-            baiViet.LuotXem = baiViet.LuotXem != null ? baiViet.LuotXem += 1 : 0;
-            _connect.Entry(baiViet).State = EntityState.Modified;
+            post.View = post.View != null ? post.View += 1 : 0;
+            _connect.Entry(post).State = EntityState.Modified;
             _connect.SaveChanges();
 
-            return View(baiVietViewModel);
+            return View(postViewModel);
         }
 
         [ChildActionOnly]
         public ActionResult GetCommentForPost(long postId = 0)
         {
-            var lisCommnets = _connect.BinhLuans.Where(x => x.BaiVietId == postId && x.IsDeleted.Value != true).ToList().OrderByDescending(x => x.CreatedDate);
+            var lisCommnets = _connect.Comments.Where(x => x.PostId == postId && x.IsDeleted.Value != true).ToList().OrderByDescending(x => x.CreatedDate);
             ViewBag.BaiVietId = postId;
 
             if (TempData["ScrollTop"] == null)
@@ -64,15 +64,15 @@ namespace TINTOMTAT.Controllers
             return PartialView(lisCommnets);
         }
 
-        public ActionResult BinhLuan(BinhLuanViewModel model)
+        public ActionResult BinhLuan(CommentViewModel model)
         {
             var binhluan = new Comment();
-            binhluan.BaiVietId = model.postId;
-            binhluan.ThanhVienId = model.thanhVienId;
-            binhluan.Comment = model.Comment;
+            binhluan.PostId = model.PostId;
+            binhluan.MemberId = model.MemberId;
+            binhluan.CommentData = model.Comment;
             binhluan.CreatedDate = DateTime.Now;
 
-            _connect.BinhLuans.Add(binhluan);
+            _connect.Comments.Add(binhluan);
             _connect.SaveChanges();
 
             //ViewBag.ScrollTop = model.ScrollTop;

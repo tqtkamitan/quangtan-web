@@ -1,4 +1,4 @@
-﻿@model TINTOMTAT.Models.BaiVietViewModel
+﻿@model TINTOMTAT.Models.PostViewModel
 
 @{
     ViewBag.Title = "SuaBaiViet";
@@ -18,10 +18,10 @@
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TenBaiViet, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PostName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TenBaiViet, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TenBaiViet, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.PostName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PostName, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -34,21 +34,21 @@
         </div>*@
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NoiDungNgan, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ShortContent, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NoiDungNgan, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NoiDungNgan, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.ShortContent, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ShortContent, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NoiDung, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.NoiDung, new { htmlAttributes = new { @class = "form-control" } })*@
                 <textarea name="NoiDung" id="FullDescription" style="width:100%" class="form-control" rows="5"> 
-                    @Model.NoiDung
+                    @Model.Content
                 </textarea>
-                @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -85,22 +85,22 @@
         </div>*@
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ThuTuHienThiTrangChu, htmlAttributes: new { @class = "control-label col-md-3" })
+        @Html.LabelFor(model => model.HomePageOrder, htmlAttributes: new { @class = "control-label col-md-3" })
         @foreach (var item in ViewBag.ThuTuTrangChu)
         {
             <b>. @item</b>
         }
         <div class="col-md-10">
-            @Html.EditorFor(model => model.ThuTuHienThiTrangChu, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ThuTuHienThiTrangChu, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.HomePageOrder, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HomePageOrder, "", new { @class = "text-danger" })
         </div>
     </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ThuTuHienThi, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ThuTuHienThi, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ThuTuHienThi, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -113,18 +113,18 @@
         </div>*@
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DanhMucId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PostTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("DanhMucId", new SelectList(ViewBag.DanhMuc, "Id", "TenDanhMuc"), new { @class ="form-control"})
                 @*@Html.EditorFor(model => model.DanhMucId, new { htmlAttributes = new { @class = "form-control" } })*@
-                @Html.ValidationMessageFor(model => model.DanhMucId, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.PostTypeId, "", new { @class = "text-danger" })
             </div>
         </div> 
         
         <div class="form-group">
-            <img  id="btnIMG" src="@Model.HinhAnh" height="100" alt="Alternate Text" />
+            <img  id="btnIMG" src="@Model.PostImage" height="100" alt="Alternate Text" />
             <br />
-            @Html.HiddenFor(model=>model.HinhAnh)
+            @Html.HiddenFor(model=>model.PostImage)
             @*@Html.LabelFor(model => model.HinhAnh, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
                 <input onchange="changeIMG()" type="file" class="btnFile btn btn-info" name="HinhAnhFile"/>

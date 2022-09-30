@@ -12,7 +12,7 @@ namespace TINTOMTAT.Data.Entites
         public long Id { get; set; }
         public string CommentData { get; set; }
         public DateTime? CreatedDate { get; set; }
-        public long? BinhLuanChaId { get; set; }
+        //public long? BinhLuanChaId { get; set; }
         public long? MemberId { get; set; }
         public long? PostId { get; set; }
         public bool? IsDeleted { get; set; }

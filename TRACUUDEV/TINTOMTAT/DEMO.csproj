@@ -156,12 +156,12 @@
   <ItemGroup>
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AuthController.cs" />
-    <Compile Include="Controllers\BaiVietAdminController.cs" />
+    <Compile Include="Controllers\PostAdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
-    <Compile Include="Controllers\DanhMucBaiVietAdminController.cs" />
+    <Compile Include="Controllers\PostTypeAdminController.cs" />
     <Compile Include="Controllers\HomeAdminController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\ThanhVienAdminController.cs" />
+    <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Data\Entites\Post.cs" />
     <Compile Include="Data\Entites\Comment.cs" />
     <Compile Include="Data\Entites\PostType.cs" />
@@ -178,13 +178,13 @@
     </Compile>
     <Compile Include="Infrastructure\CustomAuthenticationFilter.cs" />
     <Compile Include="Models\Auth\LoginModel.cs" />
-    <Compile Include="Models\BaiVietPortalViewModel\BaiVietDetailViewModel.cs" />
-    <Compile Include="Models\BaiVietPortalViewModel\BaiVietViewModel.cs" />
-    <Compile Include="Models\BaiViets\BinhLuanViewModel.cs" />
-    <Compile Include="Models\BaiVietViewModel.cs" />
-    <Compile Include="Models\DanhMucBaiViet\DanhMucBaiVietViewModel.cs" />
+    <Compile Include="Models\PostPortalViewModel\PostDetailViewModel.cs" />
+    <Compile Include="Models\PostPortalViewModel\PostViewModel.cs" />
+    <Compile Include="Models\Posts\CommentViewModel.cs" />
+    <Compile Include="Models\PostViewModel.cs" />
+    <Compile Include="Models\PostType\PostTypeViewModel.cs" />
     <Compile Include="Models\Login\LoginViewModel.cs" />
-    <Compile Include="Models\ThanhViens\ThanhVienViewModel.cs" />
+    <Compile Include="Models\Members\MemberViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2485,6 +2485,8 @@
     <Content Include="Views\ThanhVienAdmin\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Home\_Footer.cshtml" />
+    <Content Include="Views\Home\LeftMenuPartial.cshtml" />
+    <Content Include="Views\Home\MyCV.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
