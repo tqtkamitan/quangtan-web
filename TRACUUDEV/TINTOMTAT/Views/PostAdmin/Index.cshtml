@@ -10,7 +10,7 @@
             <h4>Bài viết</h4>
         </div>
         <div class="col-md-8 d-flex flex-row-reverse">
-            @Html.ActionLink("Thêm mới", "ThemBaiViet", "BaiVietAdmin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Thêm mới", "ThemBaiViet", "PostAdmin", null, new { @class = "btn btn-primary" })
         </div>
     </div>
     <div class="row">
@@ -41,8 +41,8 @@
                         <td>@item.HomePageOrder</td>
                         <td>@item.Order</td>
                         <td>
-                            @Html.ActionLink("Sửa", "SuaBaiViet", "BaiVietAdmin", new { @id = item.Id }, new { @class = "btn btn-primary" })
-                            @Html.ActionLink("Xóa", "XoaBaiViet", "BaiVietAdmin", new { @id = item.Id }, new { @class = "btn btn-danger" })
+                            @Html.ActionLink("Sửa", "SuaBaiViet", "PostAdmin", new { @id = item.Id }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Xóa", "XoaBaiViet", "PostAdmin", new { @id = item.Id }, new { @class = "btn btn-danger" })
                         </td>
                     </tr>
                 }

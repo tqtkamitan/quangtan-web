@@ -8,7 +8,7 @@
 <h2>Sửa bài viết</h2>
 
 
-@using (Html.BeginForm("SuaBaiViet", "BaiVietAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("SuaBaiViet", "PostAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -115,7 +115,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PostTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("DanhMucId", new SelectList(ViewBag.DanhMuc, "Id", "TenDanhMuc"), new { @class ="form-control"})
+                @Html.DropDownList("DanhMucId", new SelectList(ViewBag.DanhMuc, "Id", "PostTypeName"), new { @class ="form-control"})
                 @*@Html.EditorFor(model => model.DanhMucId, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.PostTypeId, "", new { @class = "text-danger" })
             </div>

@@ -17,7 +17,7 @@
                         @foreach (var item in Model)
                         {
                             var url = "/" + item.Alias + ".html";
-                            <div class="col-md-4 col-sm-6" style="margin-bottom:10px;">
+                            @*<div class="col-md-4 col-sm-6" style="margin-bottom:10px;">
                                 <a href="@url">
                                     <div class="team-member">
                                         <div class="member-img" style="height:200px">
@@ -28,9 +28,26 @@
                                             <span>Lượt xem  @item.View - @item.CreatedDate.ToString("dd/MM/yyyy")</span>
                                             <p style="height: 55px; overflow: hidden;">@item.ShortContent</p>
                                         </div>
-                                    </div> <!-- /.team-member -->
+                                    </div>
                                 </a>
-                            </div> <!-- /.col-md-4 -->
+                            </div>*@
+
+                            <a href="@url">
+                                <div class="row team-member" style="margin-bottom:10px;">
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="member-img">
+                                            <img src="@item.Image" alt="Portfolio Item 1" style="height:200px; object-fit:cover">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-sm-12">
+                                        <div class="inner-content" style="height:200px;">
+                                            <h1>@item.PostName</h1>
+                                            <span>Lượt xem  @item.View - @item.CreatedDate.ToString("dd/MM/yyyy")</span>
+                                            <p style="height: 55px; overflow: hidden;">@item.ShortContent</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                         }
                     </div>
                 </div>

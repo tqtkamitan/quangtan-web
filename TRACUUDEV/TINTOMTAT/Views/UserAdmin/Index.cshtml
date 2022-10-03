@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TINTOMTAT.Models.ThanhViens.ThanhVienViewModel>
+﻿@model IEnumerable<TINTOMTAT.Models.Members.MemberViewModel>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -29,13 +29,13 @@
                 {
                     <tr>
                         <td>@item.Id</td>
-                        <td>@item.TenThanhVien</td>
+                        <td>@item.DisplayName</td>
                         <td>@item.Email</td>   
-                        <td>@item.NgayTaoDisplay</td>
+                        <td>@item.CreateDateDisplay</td>
                         <td>@item.IsDeletedDisplay</td>
                         <td>
-                            @Html.ActionLink("Sửa", "Sua", "ThanhVienAdmin", new { @id = item.Id }, new { @class = "btn btn-primary" })
-                            @Html.ActionLink("Xóa", "Xoa", "ThanhVienAdmin", new { @id = item.Id }, new { @class = "btn btn-danger" })
+                            @Html.ActionLink("Sửa", "Sua", "UserAdmin", new { @id = item.Id }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Xóa", "Xoa", "UserAdmin", new { @id = item.Id }, new { @class = "btn btn-danger" })
                         </td>
                     </tr>
                 }

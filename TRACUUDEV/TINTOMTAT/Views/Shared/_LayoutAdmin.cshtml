@@ -42,7 +42,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item" style="cursor:pointer">
-                <a onclick="location.href = '@Url.Action("Index","DanhMucBaiVietAdmin")'" class="nav-link collapsed">
+                <a onclick="location.href = '@Url.Action("Index","PostTypeAdmin")'" class="nav-link collapsed">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Danh mục bài viết</span>
                 </a>
@@ -50,7 +50,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item" style="cursor:pointer">
-                <a onclick="location.href = '@Url.Action("Index","BaiVietAdmin")'" class="nav-link">
+                <a onclick="location.href = '@Url.Action("Index","PostAdmin")'" class="nav-link">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Bài viết</span>
                 </a>
@@ -58,7 +58,7 @@
     
             <!-- Nav Item - Charts -->
             <li class="nav-item" style="cursor:pointer">
-                <a onclick="location.href = '@Url.Action("Index","ThanhVienAdmin")'" class="nav-link">
+                <a onclick="location.href = '@Url.Action("Index","UserAdmin")'" class="nav-link">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Thành viên</span>
                 </a>
@@ -164,7 +164,7 @@
                                     Activity Log
                                 </a>*@
                                 @*<div class="dropdown-divider"></div>*@
-                                <a class="dropdown-item" onclick="location.href = '@Url.Action("Logout","Auth")'" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -219,7 +219,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" onclick="location.href = '@Url.Action("Logout","Auth", new {redirecUrl = "Login"})'">Logout</a>
                 </div>
             </div>
         </div>

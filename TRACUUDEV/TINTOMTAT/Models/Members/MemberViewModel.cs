@@ -13,6 +13,6 @@ namespace TINTOMTAT.Models.Members
         public string CreateDateDisplay => CreateDate == null ? "" : CreateDate.Value.ToString("dd/MM/yyyy - HH-mm");
         public string Email { get; set; }
         public bool? IsDeleted { get; set; }
-        public string IsDeletedDisplay => IsDeleted == null ? "Active" : (IsDeleted == true ? "Is Deleted" : "ACtive");
+        public string IsDeletedDisplay => IsDeleted == null ? "Active" : (IsDeleted == true ? "Is Deleted" : "Active");
     }
 }

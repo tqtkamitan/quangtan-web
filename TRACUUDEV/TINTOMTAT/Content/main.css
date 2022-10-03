@@ -68,6 +68,11 @@ a {
 
 #main-nav {
     margin-bottom: 0px;
+    padding: 20px 0;
+}
+
+.nav-layout {
+    color: lightgreen;
 }
 
 section {

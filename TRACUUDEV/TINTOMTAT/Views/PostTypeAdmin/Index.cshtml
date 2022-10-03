@@ -10,7 +10,7 @@
             <h4>Danh mục bài viết</h4>
         </div>
         <div class="col-md-8 d-flex flex-row-reverse">
-            @Html.ActionLink("Thêm mới", "ThemDanhMuc", "DanhMucBaiVietAdmin", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Thêm mới", "ThemDanhMuc", "PostTypeAdmin", null, new { @class = "btn btn-primary" })
         </div>
     </div>
     <div class="row">
@@ -31,8 +31,8 @@
                         <td>@item.Order</td>
                         <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
                         <td>
-                            @Html.ActionLink("Sửa", "SuaDanhMuc", "DanhMucBaiVietAdmin", new {@id = item.Id }, new { @class = "btn btn-primary" })
-                            @Html.ActionLink("Xóa", "XoaDanhMuc", "DanhMucBaiVietAdmin", new { @id = item.Id }, new { @class = "btn btn-danger" })
+                            @Html.ActionLink("Sửa", "SuaDanhMuc", "PostTypeAdmin", new {@id = item.Id }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Xóa", "XoaDanhMuc", "PostTypeAdmin", new { @id = item.Id }, new { @class = "btn btn-danger" })
                         </td>
                     </tr>
                 }

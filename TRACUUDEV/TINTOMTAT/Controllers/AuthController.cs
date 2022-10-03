@@ -57,8 +57,8 @@ namespace TINTOMTAT.Controllers
         public ActionResult Logout(string redirecUrl)
         {
             FormsAuthentication.SignOut();
-            Session["TaiKhoan"] = "";
-            Session["idUser"] = "";
+            Session.Remove("TaiKhoan");
+            Session.Remove("idUser");
             //Session.Clear();
             //Session.RemoveAll();
             //Session.Abandon();

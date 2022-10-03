@@ -6,30 +6,33 @@
 <div id="about" class="section-cotent">
     <div class="container">
         <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+                    @Html.Action("LeftMenuPartial", "Home")
+                </div>
+            </div>
             <div class="col-md-9">
                 <div class="row">
                     <div class="our-team">
                         @foreach (var item in Model)
                         {
                             var url = "/" + item.Alias + ".html";
-                            <div class="col-md-4 col-sm-6" style="margin-bottom:10px;">
-                                @*         <a onclick="location.href = '@Url.Action("Index","Post",new { id = item.Id })'">*@
-                                @*@Html.RouteLink("ABC", "PostDetail", new { alias = item.Alias })*@
-                                @*<a onclick="location.href = '@Url.RouteUrl("aa",new {alias = item.Alias })'">*@
-
-                                <a href="@url">
-                                    <div class="team-member">
-                                        <div class="member-img" style="height:200px">
-                                            <img src="@item.Image" alt="Tracy" style="height:200px; object-fit:cover">
+                            <a href="@url">
+                                <div class="row team-member" style="margin-bottom:10px;">
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="member-img">
+                                            <img src="@item.Image" alt="Portfolio Item 1" style="height:200px; object-fit:cover">
                                         </div>
-                                        <div class="inner-content" style="height: 180px; ">
+                                    </div>
+                                    <div class="col-md-8 col-sm-12">
+                                        <div class="inner-content" style="height:200px;">
                                             <h1>@item.PostName</h1>
                                             <span>Lượt xem  @item.View - @item.CreatedDate.ToString("dd/MM/yyyy")</span>
                                             <p style="height: 55px; overflow: hidden;">@item.ShortContent</p>
                                         </div>
-                                    </div> <!-- /.team-member -->
-                                </a>
-                            </div> <!-- /.col-md-4 -->
+                                    </div>
+                                </div>
+                            </a>
                         }
                     </div>
                 </div>
@@ -45,13 +48,6 @@
                 }
 
             </div>
-            <div class="col-md-3">
-                <div class="row">
-                </div>
-            </div>
-
-
-
 
             <!-- /.our-team -->
         </div> <!-- /.row -->
