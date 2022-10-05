@@ -52,7 +52,7 @@
     font-size: 1.5rem;
 }
 
-a {
+a, .navbar-toggler {
     font-style: unset;
     color: lightgreen;
     text-decoration: none;

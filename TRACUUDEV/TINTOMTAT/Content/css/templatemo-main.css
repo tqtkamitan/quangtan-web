@@ -217,8 +217,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .responsive-menu {
-    position: relative;
-    top: -20px;
+/*    position: relative;
+    top: -20px;*/
 }
 
     .responsive-menu .toggle-menu {
@@ -716,6 +716,7 @@ IPHONE 4-4S-5 LANDSCAPE (568x320)
 
     .responsive-menu .menu {
         top: 32px;
+        left: 32px;
     }
 }
 /********************************

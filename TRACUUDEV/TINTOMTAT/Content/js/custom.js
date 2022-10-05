@@ -81,15 +81,6 @@ jQuery(document).ready(function($){
         $('.responsive-menu .menu').hide();
 	});
 
-	$('.toggle-layout-menu').click(function () {
-		$('.layout-menu').stop(true, true).toggle();
-		return false;
-	});
-	$(".responsive-menu .layout-menu a").click(function () {
-		$('.responsive-menu .layout-menu').hide();
-	});
-
-
 	$(".home-page").click(function () {
 		$(".home-page-href").click()
 	})
